@@ -7,7 +7,7 @@ const totalAmountText = document.querySelector("#total-amount");
 const incrementButton = document.querySelector("#increment-button");
 
 incrementButton.addEventListener("click", () => {
-    gameData.totalAmount += gameData.incrementButtonPower;
+    gameData.totalAmount = round(gameData.totalAmount + gameData.incrementButtonPower);
     updateDisplay();
 });
 
@@ -26,18 +26,24 @@ function addUpgradeListeners() {
                 console.log("You don't have enough money");
             }
             else {
-                gameData.totalAmount -= upgradeCost;
+                gameData.totalAmount = round(gameData.totalAmount - upgradeCost);
     
                 // Raise the linked cost by factor
-                upgradeData[upgrades[i].lastElementChild.id] *= parseFloat(upgradeButton.dataset.costFactor);
+                let newUpgradeCost = upgradeCost * parseFloat(upgradeButton.dataset.costFactor);
+                upgradeData[upgrades[i].lastElementChild.id] = round(newUpgradeCost);
                 
                 // Raise the linked upgrade by factor
-                gameData[upgradeButton.dataset.upgrade] *= parseFloat(upgradeButton.dataset.upgradeFactor)
+                let newUpgradeAmount = gameData[upgradeButton.dataset.upgrade] * parseFloat(upgradeButton.dataset.upgradeFactor);
+                gameData[upgradeButton.dataset.upgrade] = round(newUpgradeAmount);
     
                 updateDisplay();
             }
         });
     }
+}
+
+function round(num) {
+    return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
 function displayUpgradeData() {
