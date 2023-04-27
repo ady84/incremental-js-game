@@ -11,23 +11,23 @@ incrementButton.addEventListener("click", () => {
     updateDisplay();
 });
 
-
 const upgradeData = {
     upgradePowerCost: 5,
     upgradePowerCost2: 8,
 };
-
 
 function addUpgradeListeners() {
     const upgrades = document.querySelectorAll(".upgrade");
     for (let i = 0; i < upgrades.length; i++) {
         const upgradeButton = upgrades[i].firstElementChild;
         upgradeButton.addEventListener("click", () => {
-            let cost = upgradeData[upgrades[i].lastElementChild.id];
-            gameData.totalAmount -= cost;
+            let upgradeCost = upgradeData[upgrades[i].lastElementChild.id];
+            gameData.totalAmount -= upgradeCost;
 
+            // Raise the linked cost by factor
             upgradeData[upgrades[i].lastElementChild.id] *= parseFloat(upgradeButton.dataset.costFactor);
             
+            // Raise the linked upgrade by factor
             gameData[upgradeButton.dataset.upgrade] *= parseFloat(upgradeButton.dataset.upgradeFactor)
 
             updateDisplay();
@@ -44,9 +44,9 @@ function displayUpgradeData() {
     }
 }
 
-
 function updateDisplay() {
     totalAmountText.textContent = gameData.totalAmount;
+    incrementButton.textContent = "+" + gameData.incrementButtonPower;
     displayUpgradeData();
 }
 
