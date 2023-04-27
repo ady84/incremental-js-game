@@ -22,15 +22,20 @@ function addUpgradeListeners() {
         const upgradeButton = upgrades[i].firstElementChild;
         upgradeButton.addEventListener("click", () => {
             let upgradeCost = upgradeData[upgrades[i].lastElementChild.id];
-            gameData.totalAmount -= upgradeCost;
-
-            // Raise the linked cost by factor
-            upgradeData[upgrades[i].lastElementChild.id] *= parseFloat(upgradeButton.dataset.costFactor);
-            
-            // Raise the linked upgrade by factor
-            gameData[upgradeButton.dataset.upgrade] *= parseFloat(upgradeButton.dataset.upgradeFactor)
-
-            updateDisplay();
+            if (gameData.totalAmount - upgradeCost < 0) {
+                console.log("You don't have enough money");
+            }
+            else {
+                gameData.totalAmount -= upgradeCost;
+    
+                // Raise the linked cost by factor
+                upgradeData[upgrades[i].lastElementChild.id] *= parseFloat(upgradeButton.dataset.costFactor);
+                
+                // Raise the linked upgrade by factor
+                gameData[upgradeButton.dataset.upgrade] *= parseFloat(upgradeButton.dataset.upgradeFactor)
+    
+                updateDisplay();
+            }
         });
     }
 }
