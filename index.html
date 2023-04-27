@@ -9,8 +9,20 @@
 </head>
 <body>
     <div id="main-container">
-        <h1 id="total-amount">0</h1>
-        <button id="increment-btn">Add</button>
+        <h1 id="total-amount"></h1>
+        <button id="increment-button">Add</button>
+    </div>
+
+    <div id="upgrade-container">
+        <h1>Upgrades</h1>
+        <div class="upgrade">
+            <button data-upgrade="incrementButtonPower" data-upgrade-factor="2" data-cost-factor="1.1">Upgrade Power</button>
+            <p id="upgradePowerCost" style="display: inline-block;"></p>
+        </div>
+        <div class="upgrade">
+            <button data-upgrade="incrementButtonPower" data-upgrade-factor="4" data-cost-factor="1.2">Upgrade Power 2</button>
+            <p id="upgradePowerCost2" style="display: inline-block;"></p>
+        </div>
     </div>
 </body>
 </html>
