@@ -43,7 +43,10 @@ function addUpgradeListeners() {
                     let newUpgradeAmount = gameData[upgradeButton.dataset.upgrade] * parseFloat(upgradeButton.dataset.upgradeFactor);
                     gameData[upgradeButton.dataset.upgrade] = round(newUpgradeAmount);
                 }
-    
+                
+                let upgradeAmount = upgrades[i].querySelector(".upgradeAmount");
+                upgradeAmount.textContent = parseInt(upgradeAmount.textContent) + 1;
+
                 updateDisplay();
             }
         });
