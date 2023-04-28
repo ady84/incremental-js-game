@@ -70,6 +70,15 @@ function updateDisplay() {
     totalAmountText.textContent = gameData.totalAmount;
     incrementButton.textContent = "+" + gameData.incrementButtonPower;
     displayUpgradeData();
+    calculateStats();
+}
+
+function calculateStats() {
+    const stats = document.querySelectorAll(".stat");
+    for (let i = 0; i < stats.length; i++) {
+        const statText = stats[i].firstElementChild;
+        statText.textContent = gameData[statText.id] * 0.5;
+    }
 }
 
 setInterval(() => {
