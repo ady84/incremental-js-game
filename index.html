@@ -16,12 +16,12 @@
     <div id="upgrade-container">
         <h1>Upgrades</h1>
         <div class="upgrade">
-            <button data-upgrade="incrementButtonPower" data-upgrade-factor="1.2" data-cost-factor="1.1">Upgrade Power</button>
-            <p id="upgradePowerCost" style="display: inline-block;"></p>
+            <button data-upgrade="incrementButtonPower" data-upgrade-factor="1.1" data-cost-factor="1.2">Upgrade Power</button>
+            <p data-type="exponential" id="upgradePowerCost" style="display: inline-block;"></p>
         </div>
         <div class="upgrade">
-            <button data-upgrade="incrementButtonPower" data-upgrade-factor="1.4" data-cost-factor="1.2">Upgrade Power 2</button>
-            <p id="upgradePowerCost2" style="display: inline-block;"></p>
+            <button data-upgrade="farms" data-upgrade-factor="1" data-cost-factor="1.25">Buy Farm</button>
+            <p data-type="linear" id="farmCost" style="display: inline-block;"></p>
         </div>
     </div>
 </body>

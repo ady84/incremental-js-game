@@ -1,6 +1,7 @@
 const gameData = {
     totalAmount: 0,
     incrementButtonPower: 1,
+    farms: 0,
 };
 
 const totalAmountText = document.querySelector("#total-amount");
@@ -12,8 +13,8 @@ incrementButton.addEventListener("click", () => {
 });
 
 const upgradeData = {
-    upgradePowerCost: 5,
-    upgradePowerCost2: 8,
+    upgradePowerCost: 10,
+    farmCost: 25,
 };
 
 function addUpgradeListeners() {
@@ -33,8 +34,15 @@ function addUpgradeListeners() {
                 upgradeData[upgrades[i].lastElementChild.id] = round(newUpgradeCost);
                 
                 // Raise the linked upgrade by factor
-                let newUpgradeAmount = gameData[upgradeButton.dataset.upgrade] * parseFloat(upgradeButton.dataset.upgradeFactor);
-                gameData[upgradeButton.dataset.upgrade] = round(newUpgradeAmount);
+                let upgradeCostElem = upgrades[i].lastElementChild;
+                if (upgradeCostElem.dataset.type == "linear") {
+                    let newUpgradeAmount = gameData[upgradeButton.dataset.upgrade] + parseFloat(upgradeButton.dataset.upgradeFactor);
+                    gameData[upgradeButton.dataset.upgrade] = round(newUpgradeAmount);
+                }
+                else if (upgradeCostElem.dataset.type == "exponential") {
+                    let newUpgradeAmount = gameData[upgradeButton.dataset.upgrade] * parseFloat(upgradeButton.dataset.upgradeFactor);
+                    gameData[upgradeButton.dataset.upgrade] = round(newUpgradeAmount);
+                }
     
                 updateDisplay();
             }
