@@ -70,8 +70,9 @@ function updateDisplay() {
 }
 
 setInterval(() => {
-    gameData.totalAmount +=
-    gameData.farms *        0.5;
+    gameData.totalAmount = round(gameData.totalAmount +
+        gameData.farms * 0.5
+    );
 
     updateDisplay();
 }, 1000);
