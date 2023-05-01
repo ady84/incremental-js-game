@@ -73,17 +73,21 @@ function updateDisplay() {
     calculateStats();
 }
 
+const buildingValues = {
+    farmValue: 0.5,
+};
+
 function calculateStats() {
     const stats = document.querySelectorAll(".stat");
     for (let i = 0; i < stats.length; i++) {
         const statText = stats[i].firstElementChild;
-        statText.textContent = gameData[statText.id] * 0.5;
+        statText.textContent = gameData[statText.id] * buildingValues.farmValue;
     }
 }
 
 setInterval(() => {
     gameData.totalAmount = round(gameData.totalAmount +
-        gameData.farms * 0.5
+        gameData.farms * buildingValues.farmValue
     );
 
     updateDisplay();
