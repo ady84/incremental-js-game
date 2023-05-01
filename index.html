@@ -33,6 +33,15 @@
             <p style="display: inline-block;">Cost:</p>
             <p data-type="linear" id="farmCost" style="display: inline-block;"></p>
         </div>
+        <div class="upgrade">
+            <button data-upgrade="banks" data-upgrade-factor="1" data-cost-factor="1.3">Buy Bank</button>
+            &nbsp;&nbsp;&nbsp;
+            <p style="display: inline-block;">Amount:</p>
+            <p class="upgradeAmount" style="display: inline-block;">0</p>
+            &nbsp;&nbsp;&nbsp;
+            <p style="display: inline-block;">Cost:</p>
+            <p data-type="linear" id="bankCost" style="display: inline-block;"></p>
+        </div>
     </div>
 
     <div id="stats-container">
@@ -40,8 +49,12 @@
         <div id="per-second-stats">
             <h2>Per second</h2>
             <div class="stat">
-                <p id="farms" style="display: inline-block;">0</p>
+                <p id="farms" style="display: inline-block;"></p>
                 <p style="display: inline-block;">/sec from farms</p>
+            </div>
+            <div class="stat">
+                <p id="banks" style="display: inline-block;"></p>
+                <p style="display: inline-block;">/sec from banks</p>
             </div>
         </div>
     </div>

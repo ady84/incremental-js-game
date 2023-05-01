@@ -2,6 +2,7 @@ const gameData = {
     totalAmount: 0,
     incrementButtonPower: 1,
     farms: 0,
+    banks: 0,
 };
 
 const totalAmountText = document.querySelector("#total-amount");
@@ -15,6 +16,7 @@ incrementButton.addEventListener("click", () => {
 const upgradeData = {
     upgradePowerCost: 10,
     farmCost: 25,
+    bankCost: 75,
 };
 
 function addUpgradeListeners() {
@@ -74,20 +76,22 @@ function updateDisplay() {
 }
 
 const buildingValues = {
-    farmValue: 0.5,
+    farms: 0.5,
+    banks: 2,
 };
 
 function calculateStats() {
     const stats = document.querySelectorAll(".stat");
     for (let i = 0; i < stats.length; i++) {
         const statText = stats[i].firstElementChild;
-        statText.textContent = gameData[statText.id] * buildingValues.farmValue;
+        statText.textContent = gameData[statText.id] * buildingValues[statText.id];
     }
 }
 
 setInterval(() => {
     gameData.totalAmount = round(gameData.totalAmount +
-        gameData.farms * buildingValues.farmValue
+        gameData.farms * buildingValues.farms +
+        gameData.banks * buildingValues.banks
     );
 
     updateDisplay();
