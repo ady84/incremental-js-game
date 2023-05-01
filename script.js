@@ -59,11 +59,19 @@ function addUpgradeListeners() {
         const upgradeButton = oneshotUpgrades[i].firstElementChild;
         const building = upgradeButton.dataset.upgrade;
         const factor = upgradeButton.dataset.upgradeFactor;
-        
-        upgradeButton.addEventListener("click", () => {
-            buildingValues[building] = round(buildingValues[building] * factor);
+        const cost = parseFloat(oneshotUpgrades[i].lastElementChild.textContent);
 
-            updateDisplay();
+        upgradeButton.addEventListener("click", () => {
+            if (gameData.totalAmount < cost) {
+                console.log("You don't have enough money");
+            }
+            else {
+                buildingValues[building] = round(buildingValues[building] * factor);
+    
+                updateDisplay();
+    
+                upgradeButton.disabled = true;
+            }
         });
     }
 }
