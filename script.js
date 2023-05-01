@@ -66,6 +66,7 @@ function addUpgradeListeners() {
                 console.log("You don't have enough money");
             }
             else {
+                gameData.totalAmount = round(gameData.totalAmount - cost);
                 buildingValues[building] = round(buildingValues[building] * factor);
     
                 updateDisplay();
