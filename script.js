@@ -53,6 +53,19 @@ function addUpgradeListeners() {
             }
         });
     }
+
+    const oneshotUpgrades = document.querySelectorAll(".oneshot-upgrade");
+    for (let i = 0; i < oneshotUpgrades.length; i++) {
+        const upgradeButton = oneshotUpgrades[i].firstElementChild;
+        const building = upgradeButton.dataset.upgrade;
+        const factor = upgradeButton.dataset.upgradeFactor;
+        
+        upgradeButton.addEventListener("click", () => {
+            buildingValues[building] = round(buildingValues[building] * factor);
+
+            updateDisplay();
+        });
+    }
 }
 
 function round(num) {
