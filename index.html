@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Uganda Asteroid Mining Corp.</title>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,50 +16,50 @@
     <div id="upgrade-container">
         <h1>Upgrades</h1>
         <div class="upgrade">
-            <button data-upgrade="incrementButtonPower" data-upgrade-factor="1.1" data-cost-factor="1.2">Upgrade Power</button>
+            <button data-upgrade="miningPower" data-upgrade-factor="1.1" data-cost-factor="1.2">Upgrade Mining Power</button>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Level:</p>
             <p class="upgradeAmount" style="display: inline-block;">0</p>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Cost:</p>
-            <p data-type="exponential" id="upgradePowerCost" style="display: inline-block;"></p>
+            <p data-type="exponential" id="miningPowerCost" style="display: inline-block;"></p>
         </div>
         <div class="upgrade">
-            <button data-upgrade="farms" data-upgrade-factor="1" data-cost-factor="1.25">Buy Farm</button>
+            <button data-upgrade="ships" data-upgrade-factor="1" data-cost-factor="1.25">Buy Asteroid Mining Ship</button>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Amount:</p>
             <p class="upgradeAmount" style="display: inline-block;">0</p>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Cost:</p>
-            <p data-type="linear" id="farmCost" style="display: inline-block;"></p>
+            <p data-type="linear" id="shipCost" style="display: inline-block;"></p>
         </div>
         <div class="upgrade">
-            <button data-upgrade="banks" data-upgrade-factor="1" data-cost-factor="1.3">Buy Bank</button>
+            <button data-upgrade="bombers" data-upgrade-factor="1" data-cost-factor="1.3">Buy Asteroid Bomber Ship</button>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Amount:</p>
             <p class="upgradeAmount" style="display: inline-block;">0</p>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Cost:</p>
-            <p data-type="linear" id="bankCost" style="display: inline-block;"></p>
+            <p data-type="linear" id="bomberCost" style="display: inline-block;"></p>
         </div>
     </div>
 
     <div id="oneshot-upgrade-container">
         <h1>Upgrades for upgrades</h1>
         <div class="oneshot-upgrade">
-            <button data-upgrade="farms" data-upgrade-factor="5">Upgrade Farms</button>
+            <button data-upgrade="ships" data-upgrade-factor="5">Upgrade Mining Ship Lasers</button>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Effect:</p>
-            <p style="display: inline-block;">Farms give x5 more</p>
+            <p style="display: inline-block;">Mining ships give x5 more</p>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Cost:</p>
             <p class="cost" style="display: inline-block;">300</p>
         </div>
         <div class="oneshot-upgrade">
-            <button data-upgrade="banks" data-upgrade-factor="10">Upgrade Banks</button>
+            <button data-upgrade="bombers" data-upgrade-factor="10">Upgrade Bomber Ship Nuke Payload</button>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Effect:</p>
-            <p style="display: inline-block;">Banks give x10 more</p>
+            <p style="display: inline-block;">Bomber ships give x10 more</p>
             &nbsp;&nbsp;&nbsp;
             <p style="display: inline-block;">Cost:</p>
             <p class="cost" style="display: inline-block;">800</p>
@@ -71,12 +71,12 @@
         <div id="per-second-stats">
             <h2>Per second</h2>
             <div class="stat">
-                <p id="farms" style="display: inline-block;"></p>
-                <p style="display: inline-block;">/sec from farms</p>
+                <p id="ships" style="display: inline-block;"></p>
+                <p style="display: inline-block;">/sec from mining ships</p>
             </div>
             <div class="stat">
-                <p id="banks" style="display: inline-block;"></p>
-                <p style="display: inline-block;">/sec from banks</p>
+                <p id="bombers" style="display: inline-block;"></p>
+                <p style="display: inline-block;">/sec from bomber ships</p>
             </div>
         </div>
     </div>

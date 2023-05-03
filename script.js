@@ -1,22 +1,22 @@
 const gameData = {
     totalAmount: 0,
-    incrementButtonPower: 1,
-    farms: 0,
-    banks: 0,
+    miningPower: 1,
+    ships: 0,
+    bombers: 0,
 };
 
 const totalAmountText = document.querySelector("#total-amount");
 const incrementButton = document.querySelector("#increment-button");
 
 incrementButton.addEventListener("click", () => {
-    gameData.totalAmount = round(gameData.totalAmount + gameData.incrementButtonPower);
+    gameData.totalAmount = round(gameData.totalAmount + gameData.miningPower);
     updateDisplay();
 });
 
 const upgradeData = {
-    upgradePowerCost: 10,
-    farmCost: 25,
-    bankCost: 75,
+    miningPowerCost: 10,
+    shipCost: 25,
+    bomberCost: 75,
 };
 
 function addUpgradeListeners() {
@@ -92,14 +92,14 @@ function displayUpgradeData() {
 
 function updateDisplay() {
     totalAmountText.textContent = gameData.totalAmount;
-    incrementButton.textContent = "+" + gameData.incrementButtonPower;
+    incrementButton.textContent = "+" + gameData.miningPower;
     displayUpgradeData();
     calculateStats();
 }
 
 const buildingValues = {
-    farms: 0.5,
-    banks: 2,
+    ships: 0.5,
+    bombers: 2,
 };
 
 function calculateStats() {
@@ -112,8 +112,8 @@ function calculateStats() {
 
 setInterval(() => {
     gameData.totalAmount = round(gameData.totalAmount +
-        gameData.farms * buildingValues.farms +
-        gameData.banks * buildingValues.banks
+        gameData.ships * buildingValues.ships +
+        gameData.bombers * buildingValues.bombers
     );
 
     updateDisplay();
