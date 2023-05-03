@@ -1,8 +1,10 @@
+// Add new building amounts here
 const gameData = {
     totalAmount: 0,
     miningPower: 1,
     ships: 0,
     bombers: 0,
+    fleets: 0,
 };
 
 const totalAmountText = document.querySelector("#total-amount");
@@ -13,10 +15,12 @@ incrementButton.addEventListener("click", () => {
     updateDisplay();
 });
 
+// Add new building costs here
 const upgradeData = {
     miningPowerCost: 10,
     shipCost: 25,
     bomberCost: 75,
+    fleetCost: 1200,
 };
 
 function addUpgradeListeners() {
@@ -97,9 +101,11 @@ function updateDisplay() {
     calculateStats();
 }
 
+// Add new building values here
 const buildingValues = {
     ships: 0.5,
     bombers: 2,
+    fleets: 10,
 };
 
 function calculateStats() {
@@ -110,10 +116,12 @@ function calculateStats() {
     }
 }
 
+// Add new building values to display here
 setInterval(() => {
     gameData.totalAmount = round(gameData.totalAmount +
         gameData.ships * buildingValues.ships +
-        gameData.bombers * buildingValues.bombers
+        gameData.bombers * buildingValues.bombers +
+        gameData.fleets * buildingValues.fleets
     );
 
     updateDisplay();

@@ -42,6 +42,15 @@
             <p style="display: inline-block;">Cost:</p>
             <p data-type="linear" id="bomberCost" style="display: inline-block;"></p>
         </div>
+        <div class="upgrade">
+            <button data-upgrade="fleets" data-upgrade-factor="1" data-cost-factor="1.16">Buy Asteroid Mining Fleet</button>
+            &nbsp;&nbsp;&nbsp;
+            <p style="display: inline-block;">Amount:</p>
+            <p class="upgradeAmount" style="display: inline-block;">0</p>
+            &nbsp;&nbsp;&nbsp;
+            <p style="display: inline-block;">Cost:</p>
+            <p data-type="linear" id="fleetCost" style="display: inline-block;"></p>
+        </div>
     </div>
 
     <div id="oneshot-upgrade-container">
@@ -77,6 +86,10 @@
             <div class="stat">
                 <p id="bombers" style="display: inline-block;"></p>
                 <p style="display: inline-block;">/sec from bomber ships</p>
+            </div>
+            <div class="stat">
+                <p id="fleets" style="display: inline-block;"></p>
+                <p style="display: inline-block;">/sec from fleets</p>
             </div>
         </div>
     </div>
